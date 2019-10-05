@@ -1,0 +1,64 @@
+﻿
+@Styles.Render("~/Content/Solicitacao")
+
+<h2>Atendiment de Chamados</h2>
+<div class="row">
+    <button class="badge col-lg-6" onclick="listar.carregarSolicitacao(event,this)">CarregarSolicitações </button>
+
+    <button class="badge col-lg-6" onclick="listar.carregarAtendimentos(event,this)">CarregarAtendimentos</button>
+</div>
+
+<div class="row">
+    <div id="tablesoli"></div>
+</div>
+
+<div class="row">
+    <div id="tableated"></div>
+</div>
+<div class="row">
+    <h3>Iniciar Atendimento</h3>
+</div>
+<div class="row">
+    <form onsubmit="listar.iniciarAtendimento(event,this)">
+        <div class="col-lg-3">
+            <label>Iniciar atendimento:</label>
+            <input type="number" id="idchamado" class="form-control" placeholder="Numero da Solicitacao" required />
+        </div>
+        <div class="col-lg-3">
+            <label>Codigo Tecnico:</label>
+            <input type="number" id="idTecnico" class="form-control" placeholder="Codigo do Tecnico" required />
+        </div>
+        <div class="col-lg-2">
+            <button class="btn  btn-success" type="submit">Iniciar</button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <h3>Finalizar Atendimento</h3>
+    <form onsubmit="listar.finalizarAtendimento(event,this)">
+        <div class="col-sm-3">
+            <label>Finalizar Atendimento:</label>
+            <input type="number" id="idchamadoF" class="form-control" placeholder="Numero do Atendimento" required />
+        </div>
+        <div class="col-sm-3">
+            <label>Codigo Tecnico:</label>
+            <input type="number" id="idTecnicoF" class="form-control" placeholder="Codigo do Tecnico" required />
+        </div>
+        <div class="col-lg-3">
+            <label>Equipamento:</label>
+            <select type="number" id="selectEquipamento" class="form-control">
+                <option value="0">Sem Equipamento</option>
+                <option value="1">Com Equipamento</option>
+            </select>
+        </div>
+        <div class="col-lg-1">
+            <button class="btn  btn-success" type="submit">Finalizar</button>
+        </div>
+    </form>
+</div>
+@section scripts{
+
+    @Scripts.Render("~/bundles/Solicitacao")
+
+}
